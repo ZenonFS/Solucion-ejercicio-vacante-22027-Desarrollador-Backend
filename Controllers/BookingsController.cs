@@ -46,7 +46,7 @@ namespace TravelAgencyApp.Controllers
             }
 
             Booking createdBooking = await db.Book(booking);
-            new Functions().SendEmail("santiago.suarez6135@gmail.com", "Reserva de habitaciones realizada con éxito.", "Para más información dirigirse al portal.");
+            new Functions().SendEmail(createdBooking.Passagers[0].Email, "Reserva de habitaciones realizada con éxito.", "Para más información dirigirse al portal.");
             return Created("Asignado con Éxito", createdBooking);
         }
 
